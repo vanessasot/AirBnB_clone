@@ -48,5 +48,11 @@ class BaseModel():
                                      self.id, self.__dict__))
 
     def save(self):
+        """ save
+        """
+        self.update_at = datetime.now()
 
     def to_dict(self):
+        """ create a dict
+        """
+
