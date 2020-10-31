@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-"""module BaseModel is a parent of all class
+"""module BaseModel
+    is a parent of all class
 """
 
 from datetime import datetime
