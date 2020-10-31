@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
-    """module BaseModel
-        is a parent of all class
-    """
+"""module BaseModel is a parent of all class
+"""
 
 from datetime import datetime
 from uuid import uuid4
@@ -24,18 +23,18 @@ class BaseModel():
             """
 
         if len(kwargs) is 0:
-            self.id = str(uuid.uuid4())
+            self.id = str(uuid4())
             self.created_at = datetime.now()
-            self.update_at = datetime.now()
+            self.updated_at = datetime.now()
 
         else:
             for key, val in kwargs.items():
                 if "created_at" == key:
                     self.created_at = datetime.strptime(kwargs["created_at"],
-                                                        %Y-%m-%dT%H:%M:%S.%f)
-                elif "update_at" == key:
-                    self.created_at = datetime.strptime(kwargs["update_at"],
-                                                        %Y-%m-%dT%H:%M:%S.%f)
+                                                         "%Y-%m-%dT%H:%M:%S.%f")
+                elif "updated_at" == key:
+                    self.created_at = datetime.strptime(kwargs["updated_at"],
+                                                         "%Y-%m-%dT%H:%M:%S.%f")
                 elif key is "__class__":
                     pass
                 else:
@@ -44,18 +43,21 @@ class BaseModel():
     def __str__(self):
         """ Return string
         """
+        name = self.__class__.__name__
+        dic = self.__dict__
         return ("[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__))
 
     def save(self):
         """ save
         """
-        self.update_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """ create a dict
         """
-        
-        
-        
-
+        n_dict = dict(self.__dict__)
+        n_dict["__class__"] = self.__class__.__name__
+        n_dict['created_at'] = self.created_at.isoformat()
+        n_dict['updated_at'] = self.updated_at.isoformat()
+        return n_dict
