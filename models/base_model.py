@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-    """module BaseModel
-        is a parent of all class
-    """
+"""module BaseModel
+    is a parent of all class
+"""
 
 from datetime import datetime
 from uuid import uuid4
@@ -32,10 +32,10 @@ class BaseModel():
             for key, val in kwargs.items():
                 if "created_at" == key:
                     self.created_at = datetime.strptime(kwargs["created_at"],
-                                                        %Y-%m-%dT%H:%M:%S.%f)
+                                                         %Y-%m-%dT%H:%M:%S.%f)
                 elif "update_at" == key:
                     self.created_at = datetime.strptime(kwargs["update_at"],
-                                                        %Y-%m-%dT%H:%M:%S.%f)
+                                                         %Y-%m-%dT%H:%M:%S.%f)
                 elif key is "__class__":
                     pass
                 else:
@@ -55,7 +55,5 @@ class BaseModel():
     def to_dict(self):
         """ create a dict
         """
-        
-        
-        
-
+        for key, val in sorted(self.__dict__.items()):
+            return ("{}: {}".format(key, val))
