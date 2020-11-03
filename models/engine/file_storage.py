@@ -6,6 +6,7 @@ import models
 from os import path
 from models.base_model import BaseModel
 
+
 class FileStorage():
     """ class command interpreter
     """
@@ -20,7 +21,7 @@ class FileStorage():
     def new(self, obj):
         if obj:
             FileStorage.__objects["{}.{}".format(obj.__class__.__name__,
-                                      obj.id)] = obj
+                                                 obj.id)] = obj
 
     def save(self):
         """save(self): serializes __objects
@@ -29,7 +30,6 @@ class FileStorage():
         object_tf = {}
         for key, val in self.__objects.items():
             object_tf[key] = val.to_dict()
-
 
         with open(self.__file_path, 'w', encoding="utf-8") as fd:
                 json.dump(object_tf, fd)
