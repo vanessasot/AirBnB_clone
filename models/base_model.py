@@ -27,6 +27,7 @@ class BaseModel():
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self)
 
         else:
             for key, val in kwargs.items():
@@ -53,6 +54,7 @@ class BaseModel():
         """ save
         """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """ create a dict
