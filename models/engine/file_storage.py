@@ -3,17 +3,14 @@
 """
 import json
 import models
+from os import path
 from models.base_model import BaseModel
 
 class FileStorage():
     """ class command interpreter
     """
-
-    def __init__(self):
-        """ initializate filestorage
-        """
-        self.__file_path = "file.json"
-        self.__objects = dict()
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self):
         """ return dict = objects
@@ -21,7 +18,8 @@ class FileStorage():
         return self.__objects
 
     def new(self, obj):
-        self.__objects["{}.{}".format(obj.__class__.__name__,
+        if obj:
+            FileStorage.__objects["{}.{}".format(obj.__class__.__name__,
                                       obj.id)] = obj
 
     def save(self):
@@ -34,14 +32,13 @@ class FileStorage():
 
 
         with open(self.__file_path, 'w', encoding="utf-8") as fd:
-                json.dumps(fd)
+                json.dump(object_tf, fd)
 
     def reload(self):
-        try:
+        if not path.exists(self.__file_path):
+            pass
+        else:
             with open(self.__file_path, 'r', encoding="utf-8") as f:
                 new = json.load(f)
-                for key, obj in new.items():
-                    self.__objects[key] = new
-
-        except:
-            pass
+            for key, obj in new.items():
+                    self.__objects[key] = eval(obj["__class__"])(**obj)
