@@ -20,7 +20,8 @@ class BaseModel():
             updated_at:
                     datetime - assign with the current\
                         datetime when an instance is created
-                        and it will be updated every time you change your object
+                        and it will be updated every time you\
+                        change your object
             """
 
         if len(kwargs) is 0:
@@ -32,14 +33,12 @@ class BaseModel():
         else:
             for key, val in kwargs.items():
                 if "created_at" == key:
-                    self.created_at = datetime.strptime(kwargs["created_at"],
-                                                         "%Y-%m-%dT%H:%M:%S.%f")
+                    self.created_at = datetime.strptime(kwargs["created_at"], 
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
                 elif "updated_at" == key:
-                    self.created_at = datetime.strptime(kwargs["updated_at"],
-                                                         "%Y-%m-%dT%H:%M:%S.%f")
-                elif key is "__class__":
-                    pass
-                else:
+                    self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                elif not key == "__class__":
                     setattr(self, key, val)
 
     def __str__(self):
@@ -48,7 +47,7 @@ class BaseModel():
         name = self.__class__.__name__
         dic = self.__dict__
         return ("[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__))
+                                      self.id, self.__dict__))
 
     def save(self):
         """ save
@@ -61,6 +60,6 @@ class BaseModel():
         """
         n_dict = dict(self.__dict__)
         n_dict["__class__"] = self.__class__.__name__
-        n_dict['created_at'] = self.created_at.isoformat()
-        n_dict['updated_at'] = self.updated_at.isoformat()
+        n_dict["created_at"] = self.created_at.isoformat()
+        n_dict["updated_at"] = self.updated_at.isoformat()
         return n_dict
