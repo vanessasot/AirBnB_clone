@@ -23,7 +23,6 @@ class BaseModel():
                         and it will be updated every time you\
                         change your object
             """
-
         if len(kwargs) is 0:
             self.id = str(uuid4())
             self.created_at = datetime.now()
@@ -50,13 +49,13 @@ class BaseModel():
                                       self.id, self.__dict__))
 
     def save(self):
-        """ save
+        """ save a file to created of file storage
         """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """ create a dict
+        """ create a dictionary with argument
         """
         n_dict = dict(self.__dict__)
         n_dict["__class__"] = self.__class__.__name__
