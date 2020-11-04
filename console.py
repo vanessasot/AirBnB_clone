@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
         printall = []
         if not args:
             for i in dicti.values():
-                printall.append(str(v))
+                printall.append(str(i))
         elif args[0] in name_of_class:
             for key, val in dicti.items():
                 if val.__class__.__name__ == args[0]:
