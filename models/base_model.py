@@ -5,7 +5,7 @@
 """
 
 from datetime import datetime
-import uuid
+from uuid import uuid4
 import models
 
 
@@ -24,7 +24,7 @@ class BaseModel():
                         change your object
             """
         if len(kwargs) is 0:
-            self.id = str(uuid.uuid4())
+            self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
