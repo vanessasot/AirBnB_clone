@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""module BaseModel
+"""Module BaseModel
     is a parent of all class
 """
 
@@ -10,10 +10,11 @@ import models
 
 
 class BaseModel():
-    """class base of all proyect
+    """Class base of all proyect
     """
+
     def __init__(self, *args, **kwargs):
-        """ initializate class with UUID and
+        """ Initializate class with UUID and
             created_at:
                     datetime - assign with the current\
                     datetime when an instance is created
@@ -41,21 +42,19 @@ class BaseModel():
                     setattr(self, key, val)
 
     def __str__(self):
-        """ Return string
+        """ Return a string
         """
-        name = self.__class__.__name__
-        dic = self.__dict__
         return ("[{}] ({}) {}".format(self.__class__.__name__,
                                       self.id, self.__dict__))
 
     def save(self):
-        """ save a file to created of file storage
+        """ Save a file to created of file storage
         """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """ create a dictionary with argument
+        """ Create a dictionary with argument
         """
         n_dict = dict(self.__dict__)
         n_dict["__class__"] = self.__class__.__name__
