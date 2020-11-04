@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 """The Module"""
-from models.base_model import base_model
+from models.base_model import BaseModel
 
 class State(BaseModel):
-
+	 """
+	 This is the class for State
+   	 Attributes:
+         name: input name
+    	 """
 	name=""
