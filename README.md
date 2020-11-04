@@ -1,4 +1,4 @@
-![](Image.png)
+![](https://github.com/didierrevelo/AirBnB_clone/blob/jhonny/images/Image.png)
 
 # AirBnB clone - The console :computer:
 
