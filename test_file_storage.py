@@ -40,6 +40,20 @@ class TestFileStorage(unittest.TestCase):
         new = storage.all()
         self.assertDictEqual(new["BaseModel." + base.id].to_dict(), base.to_dict())
 
+    def test_different_id(self):
+        """Method that check if each instance that is created has
+        a unique id
+        """
+        instance1 = FileStorage()
+        instance2 = FileStorage()
+        self.assertNotEqual(instance1, instance2)
+
+    def test_is_an_instance(self):
+        """Method that check if FileStorageInstance is an instance
+        of FileStorage()
+        """
+        FileStorageInstance = FileStorage()
+        self.assertIsInstance(FileStorageInstance, FileStorage)
 
 if __name__ == '__main__':
     unittest.main()
