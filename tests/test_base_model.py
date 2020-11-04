@@ -4,7 +4,6 @@ from models.base_model import BaseModel
 import unittest
 from models import storage
 import datetime
-base = BaseModel()
 
 
 class TestBaseModel(unittest.TestCase):
@@ -16,6 +15,7 @@ class TestBaseModel(unittest.TestCase):
     def test_doc(self):
         """test for documentation
         """
+        base = BaseModel()
         self.assertIsNotNone(("models.base_model".__doc__))
         self.assertIsNotNone(base.__doc__)
         self.assertIsNotNone(base.__init__.__doc__)
@@ -26,6 +26,7 @@ class TestBaseModel(unittest.TestCase):
     def test_attr(self):
         """create new attributes test
         """
+        base = BaseModel()
         base.name = "Vanessa"
         self.assertAlmostEqual(base.name, "Vanessa")
         base.number = 52000
@@ -37,6 +38,7 @@ class TestBaseModel(unittest.TestCase):
     def test_update(self):
         """properly update
         """
+        base = BaseModel()
         a = str(base.updated_at)
         b = str(base.created_at)
         base.name = "Didier"
