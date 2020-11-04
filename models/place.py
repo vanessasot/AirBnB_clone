@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-"""The Module"""
+"""The Module Place"""
 from models.base_model import BaseModel
 
-"""
-Class place
-"""
+
 class Place(BaseModel):
-    """
-    This is the class for Place
-    Attributes:
+    """ This is the class for Place
+        Attributes:
         city_id: city id
         user_id: user id
         name: name input
@@ -21,7 +18,7 @@ class Place(BaseModel):
         longitude: longitude in float
         amenity_ids: list of Amenity ids
     """
-    
+
     city_id = ""
     user_id = ""
     name = ""
