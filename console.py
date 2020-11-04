@@ -26,7 +26,7 @@ name_of_class = {
 
 class HBNBCommand(cmd.Cmd):
     """ Create a interpreter command in Python """
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
 
     def do_EOF(self, line):
         """ Exit the program """
