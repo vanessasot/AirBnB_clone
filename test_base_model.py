@@ -5,6 +5,7 @@ import unittest
 from models import storage
 import datetime
 import json
+import os
 
 class TestBaseModel(unittest.TestCase):
     """ base model test
@@ -83,6 +84,30 @@ class TestBaseModel(unittest.TestCase):
         self.assertFalse(base is base2)
         self.assertDictEqual(base.to_dict(), base2.to_dict())
 
+    def test_exec_permissions(self):
+        """Method that test for check the execution permissions
+        """
+        read = os.access('models/base_model.py', os.R_OK)
+        self.assertTrue(read)
+        write = os.access('models/base_model.py', os.W_OK)
+        self.assertTrue(write)
+        exect = os.access('models/base_model.py', os.X_OK)
+        self.assertTrue(exect)
+
+    def test_is_an_instance(self):
+        """Method that check if BaseModelInstance is an instance
+        of BaseModel()
+        """
+        BaseModelInstance = BaseModel()
+        self.assertIsInstance(BaseModelInstance, BaseModel)
+
+    def test_different_id(self):
+        """Method that check if each instance that is created has
+        a unique id
+        """
+        instance1 = BaseModel()
+        instance2 = BaseModel()
+        self.assertNotEqual(instance1, instance2)
 
 if __name__ == '__main__':
     unittest.main()
