@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-"""The Module"""
+"""The Module City"""
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
     """City
     Args:
-    BaseModel: state id
-    name state
+    BaseModel: state id, name
     """
-state_id = ""
-name = ""
+    state_id = ""
+    name = ""
