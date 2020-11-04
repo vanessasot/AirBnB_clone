@@ -26,7 +26,7 @@ This is the console /command interpreter for the Holberton Airbnb clone project.
 
 When you run the./console.py console on a terminal, A prompt (hbnb) will apear on your screem, in where you can type your command and when you hit enter it will run the command and do that you ask for displaying the output on the stdout(Standar Output) then it will be waiting for you to enter another command, all of this in interacive mode. But also it have a non-interactive mode in where you just tell what command to execute
 
-![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20201104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201104T143847Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ecde9d9aec7e5c6f2ce8ac7bf17e5bcc46c896e951eef2ddd1a0902142b4d0e5)
+![](https://github.com/didierrevelo/AirBnB_clone/blob/jhonny/images/map.png)
 
 ### Environment :robot:
 * Language: Python3
