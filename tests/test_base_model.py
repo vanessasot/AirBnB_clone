@@ -21,5 +21,10 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(BaseModel.to_dict.__doc__)
         self.assertIsNotNone(BaseModel.__str__.__doc__)
 
+    def attr_test(self):
+        """create new attributes test
+        """
+        BaseModel.name = "Vanessa"
+        self.assertAlmostEqual(BaseModel.name, "Vanessa")
 if __name__ == '__main__':
     unittest.main()
