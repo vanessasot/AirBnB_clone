@@ -4,11 +4,13 @@
 import cmd
 import shlex
 from models import storage
+from models.user import User
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 name_of_class = {
     "BaseModel": BaseModel,
+    "User": User,
 }
 
 
@@ -36,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
         elif not args[0] in name_of_class:
             print("** class doesn't exist **")
         else:
-            new_obj = self.name_of_class(args[0])()
+            new_obj = eval(args[0])()
             new_obj.save()
             print(new_obj.id)
 
