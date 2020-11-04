@@ -1,11 +1,16 @@
 #!/usr/bin/python3
-""" storage file AirBnB
+""" Module storage file AirBnB
 """
 import json
 import models
 from os import path
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 from models.base_model import BaseModel
-
 
 
 class FileStorage():
@@ -42,7 +47,7 @@ class FileStorage():
     def reload(self):
         """reload(self): deserializes the JSON file to __objects
         (only if the JSON file (__file_path) exists ; otherwise,
-        do nothing. If the file doesn’t exist, no exception should be raised)
+        do nothing. If the file doesn't exist, no exception should be raised)
         """
         if not path.exists(self.__file_path):
             pass
