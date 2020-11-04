@@ -7,6 +7,7 @@ import datetime
 import json
 import os
 
+
 class TestBaseModel(unittest.TestCase):
     """ base model test
 
