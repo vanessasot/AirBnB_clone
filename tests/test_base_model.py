@@ -5,7 +5,7 @@ import unittest
 from models import storage
 import datetime
 import json
-
+import os
 
 class TestBaseModel(unittest.TestCase):
     """ base model test
@@ -47,7 +47,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(str(base.updated_at), a)
         self.assertEqual(str(base.created_at), b)
 
-    def test_to_dict(self):
+    def test_dict(self):
         """ Tests the dictionary """
         base = BaseModel()
         base2 = base.to_dict()
@@ -66,24 +66,48 @@ class TestBaseModel(unittest.TestCase):
                 d = d[item]
         self.assertDictEqual(d, base.to_dict())
 
-    def test_save_andrew_kali_suggestion(self):
+    def test_save2(self):
         """
             test save using method provided by peer in Bog
             not our own test
         """
-        o = BaseModel()
-        n = datetime.datetime.now().replace(microsecond=0)
-        o.save()
-        self.assertEqual(o.updated_at.replace(microsecond=0), n)
+        base = BaseModel()
+        base2 = datetime.datetime.now().replace(microsecond=0)
+        base.save()
+        self.assertEqual(base.updated_at.replace(microsecond=0), base2)
 
-    def test_new_model_from_dict(self):
+    def test_new_model(self):
         """ Tests createion of new model with dictionary """
         base = BaseModel()
-        m1_dict = base.to_dict()
-        base2 = BaseModel(**m1_dict)
+        base3 = base.to_dict()
+        base2 = BaseModel(**base3)
         self.assertFalse(base is base2)
         self.assertDictEqual(base.to_dict(), base2.to_dict())
 
+    def test_exec_permissions(self):
+        """Method that test for check the execution permissions
+        """
+        read = os.access('models/base_model.py', os.R_OK)
+        self.assertTrue(read)
+        write = os.access('models/base_model.py', os.W_OK)
+        self.assertTrue(write)
+        exect = os.access('models/base_model.py', os.X_OK)
+        self.assertTrue(exect)
+
+    def test_is_an_instance(self):
+        """Method that check if BaseModelInstance is an instance
+        of BaseModel()
+        """
+        BaseModelInstance = BaseModel()
+        self.assertIsInstance(BaseModelInstance, BaseModel)
+
+    def test_different_id(self):
+        """Method that check if each instance that is created has
+        a unique id
+        """
+        instance1 = BaseModel()
+        instance2 = BaseModel()
+        self.assertNotEqual(instance1, instance2)
 
 if __name__ == '__main__':
     unittest.main()
