@@ -83,7 +83,8 @@ class HBNBCommand(cmd.Cmd):
                 printall.append(str(v))
         elif args[0] in name_of_class:
             for key, val in dicti.items():
-                printall.append(val.__str__())
+                if val.__class__.__name__ == args[0]:
+                    printall.append(val.__str__())
             print(printall)
         else:
             print("** class doesn't exist **")
