@@ -2,12 +2,12 @@
 """The Module"""
 from models.base_model import BaseModel
 
+
 class City(BaseModel):
-	"""
-	This is the class for City
-        Attributes:
-        state_id: The state id
-        name: input name
-        """
-	state_id=""
-	name=""
+    """City
+    Args:
+    BaseModel: state id
+    name state
+    """
+state_id = ""
+name = ""

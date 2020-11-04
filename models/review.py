@@ -6,9 +6,9 @@ from models.base_model import BaseModel
 class review
 """
 class Review(BaseModel):
-     """
-     This is the class for Review
-     Attributes:
+    """
+    This is the class for Review
+    Attributes:
         place_id: place id
         user_id: user id
         text: review description
