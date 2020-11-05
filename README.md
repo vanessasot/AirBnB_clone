@@ -62,7 +62,7 @@ On **interactive mode:**
 |help | Help function. |
 |update | Updates an instance. |
 
-### :file_folder: Files
+### Files :file_folder: 
 
 | File Name / Folder Name | Content |
 |---|---|
