@@ -93,6 +93,5 @@ class Test_state(unittest.TestCase):
         state2_id = State()
         self.assertNotEqual(state1_id, state2_id)
 
-
 if __name__ == '__main__':
     unittest.main()
