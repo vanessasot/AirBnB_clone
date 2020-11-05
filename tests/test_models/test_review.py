@@ -75,6 +75,23 @@ class Test_Review(unittest.TestCase):
         self.assertFalse(base is base2)
         self.assertDictEqual(base.to_dict(), base2.to_dict())
 
+    def test_instace(self):
+        """ test instance """
+        test1 = Review()
+        self.assertIsInstance(test1, Review)
+
+    def test_permissions(self):
+        """ test permissions """
+        self.assertTrue(os.access("models/review.py", os.X_OK))
+        self.assertTrue(os.access("models/review.py", os.R_OK))
+        self.assertTrue(os.access("models/review.py", os.W_OK))
+        self.assertTrue(os.access("models/review.py", os.F_OK))
+
+    def test_ids_maker(self):
+        """ test to generate unique id """
+        review1_id = Review()
+        review2_id = Review()
+        self.assertNotEqual(review1_id, review2_id)
 
 if __name__ == '__main__':
     unittest.main()
