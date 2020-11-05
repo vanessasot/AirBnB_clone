@@ -98,6 +98,51 @@ git clone https://github.com/didierrevelo/AirBnB_clone/tree/main
 ```
 ---
 
+###  Testing :clipboard: :mag: :eyes: :exclamation: 
+
+Unittests for the HolbertonBnB project are defined in the [tests](./tests) 
+folder. To run the entire test suite simultaneously, execute the following command:
+
+```
+$ python3 unittest -m discover tests
+```
+
+Alternatively, you can specify a single test file to run at a time:
+
+```
+$ python3 unittest -m tests/test_console.py
+```
+---
+
+### Using our console :computer:
+```
+/AirBnB_clone$ ./console.py
+(hbnb)help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb)create User
+05bc8cd2-f889-4280-a731-b865de21d8fc
+(hbnb)show User 05bc8cd2-f889-4280-a731-b865de21d8fc
+[User] (05bc8cd2-f889-4280-a731-b865de21d8fc) {'id': '05bc8cd2-f889-4280-a731-b865de21d8fc', 'updated_at': datetime.datetime(2020, 7, 1, 17, 36, 53, 271047), 'created_at': datetime.datetime(2020, 7, 1, 17, 36, 53, 271006)}
+(hbnb)create BaseModel
+0cdb9ff1-187c-4c90-b60a-2c3137dd532a
+(hbnb)update User 05bc8cd2-f889-4280-a731-b865de21d8fc name "Didier"
+(hbnb)all
+["[BaseModel] (0cdb9ff1-187c-4c90-b60a-2c3137dd532a) {'id': '0cdb9ff1-187c-4c90-b60a-2c3137dd532a', 'updated_at': datetime.datetime(2020, 11, 5, 2, 46, 21, 904671), 'created_at': datetime.datetime(2020, 11, 5, 2, 46, 21, 904597)}", "[User] (05bc8cd2-f889-4280-a731-b865de21d8fc) {'id': '05bc8cd2-f889-4280-a731-b865de21d8fc', 'updated_at': datetime.datetime(2020, 11, 5, 2, 47, 3, 78298), 'created_at': datetime.datetime(2020, 11, 5, 2, 45, 28, 22255), 'name': 'Didier'}"]
+(hbnb)create User
+b96de278-eb8b-4bfe-8e03-5ec0243c28ff
+(hbnb) show BaseModel 0cdb9ff1-187c-4c90-b60a-2c3137dd532a
+[BaseModel] (0cdb9ff1-187c-4c90-b60a-2c3137dd532a) {'id': '0cdb9ff1-187c-4c90-b60a-2c3137dd532a', 'updated_at': datetime.datetime(2020, 11, 5, 2, 46, 21, 904671), 'created_at': datetime.datetime(2020, 11, 5, 2, 46, 21, 904597)}
+(hbnb) destroy BaseModel 0cdb9ff1-187c-4c90-b60a-2c3137dd532a
+(hbnb) show BaseModel 0cdb9ff1-187c-4c90-b60a-2c3137dd532a
+** no instance found **
+(hbnb) quit
+```
+---
+
 ## Authors :black_nib:
 
 * [**Didier Revelo**](https://github.com/didierrevelo) :construction_worker:
