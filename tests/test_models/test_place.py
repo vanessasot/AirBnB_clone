@@ -75,6 +75,23 @@ class Test_Place(unittest.TestCase):
         self.assertFalse(base is base2)
         self.assertDictEqual(base.to_dict(), base2.to_dict())
 
+    def test_instace(self):
+        """ test instance """
+        test1 = Place()
+        self.assertIsInstance(test1, Place)
+
+    def test_permissions(self):
+        """ test permissions """
+        self.assertTrue(os.access("models/place.py", os.X_OK))
+        self.assertTrue(os.access("models/place.py", os.R_OK))
+        self.assertTrue(os.access("models/place.py", os.W_OK))
+        self.assertTrue(os.access("models/place.py", os.F_OK))
+
+    def test_ids_maker(self):
+        """ test to generate unique id """
+        place1_id = Place()
+        place2_id = Place()
+        self.assertNotEqual(place1_id, place2_id)
 
 if __name__ == '__main__':
     unittest.main()
