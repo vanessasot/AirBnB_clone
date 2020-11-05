@@ -62,6 +62,21 @@ On **interactive mode:**
 |help | Help function. |
 |update | Updates an instance. |
 
+### :file_folder: Files
+
+| File Name / Folder Name | Content |
+|---|---|
+|[base_model.py](./models/base_model.py)|BaseModel Class|
+|[amenity.py](./models/amenity.py)|Amenity Class|
+|[city.py](./models/city.py)|City Class|
+|[place.py](./models/place.py)|Place Class|
+|[state.py](./models/state.py)|State Class|
+|[review.py](./models/review.py)|Review Class|
+|[user.py](./models/user.py)|User Class|
+|[file_storage.py](./models/engine/file_storage.py)|FileStorage Class|
+|[tests/test_models/](./tests/test_models/)|Unittests for BaseModel, User, Amenity, City, Place, Review, and State classes|
+|[tests/test_models/test_engine/](./tests/test_models/test_engine/)|Unittest for FileStorage Class|
+
 ### How to Install :computer: :triangular_flag_on_post:
 
 Clone the repositoy below:
