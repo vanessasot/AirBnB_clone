@@ -9,6 +9,7 @@ import time
 import os
 import json
 from models import storage
+import models
 
 
 class Test_user(unittest.TestCase):
@@ -75,6 +76,23 @@ class Test_user(unittest.TestCase):
         self.assertFalse(base is base2)
         self.assertDictEqual(base.to_dict(), base2.to_dict())
 
+    def test_instace(self):
+        """ test instance """
+        test1 = User()
+        self.assertIsInstance(test1, User)
+
+    def test_permissions(self):
+        """ test permissions """
+        self.assertTrue(os.access("models/user.py", os.X_OK))
+        self.assertTrue(os.access("models/user.py", os.R_OK))
+        self.assertTrue(os.access("models/user.py", os.W_OK))
+        self.assertTrue(os.access("models/user.py", os.F_OK))
+
+    def test_ids_maker(self):
+        """ test to generate unique id """
+        user1_id = User()
+        user2_id = User()
+        self.assertNotEqual(user1_id, user2_id)
 
 if __name__ == '__main__':
     unittest.main()

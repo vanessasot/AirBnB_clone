@@ -75,5 +75,23 @@ class Test_Amenity(unittest.TestCase):
         self.assertFalse(base is base2)
         self.assertDictEqual(base.to_dict(), base2.to_dict())
 
+    def test_instace(self):
+        """ test instance """
+        test1 = Amenity()
+        self.assertIsInstance(test1, Amenity)
+
+    def test_permissions(self):
+        """ test permissions """
+        self.assertTrue(os.access("models/amenity.py", os.X_OK))
+        self.assertTrue(os.access("models/amenity.py", os.R_OK))
+        self.assertTrue(os.access("models/amenity.py", os.W_OK))
+        self.assertTrue(os.access("models/amenity.py", os.F_OK))
+
+    def test_ids_maker(self):
+        """ test to generate the id """
+        option1 = Amenity()
+        option2 = Amenity()
+        self.assertNotEqual(option1, option2)
+
 if __name__ == '__main__':
     unittest.main()
