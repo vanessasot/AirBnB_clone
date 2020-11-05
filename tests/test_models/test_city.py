@@ -75,6 +75,24 @@ class Test_City(unittest.TestCase):
         self.assertFalse(base is base2)
         self.assertDictEqual(base.to_dict(), base2.to_dict())
 
+    def test_instace(self):
+        """ test instance """
+        test1 = City()
+        self.assertIsInstance(test1, City)
+
+    def test_permissions(self):
+        """ test permissions """
+        self.assertTrue(os.access("models/city.py", os.X_OK))
+        self.assertTrue(os.access("models/city.py", os.R_OK))
+        self.assertTrue(os.access("models/city.py", os.W_OK))
+        self.assertTrue(os.access("models/city.py", os.F_OK))
+
+    def test_ids_maker(self):
+        """ test to generate unique id """
+        city1_id = City()
+        city2_id = City()
+        self.assertNotEqual(city1_id, city2_id)
+
 
 if __name__ == '__main__':
     unittest.main()
