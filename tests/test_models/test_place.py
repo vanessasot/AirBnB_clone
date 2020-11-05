@@ -11,8 +11,8 @@ import json
 from models import storage
 
 
-class Test_place(unittest.TestCase):
-    """Create class Test_place"""
+class Test_Place(unittest.TestCase):
+    """Create class Test_Place"""
 
     def test_doc(self):
         """ Tests docstring """
@@ -35,3 +35,46 @@ class Test_place(unittest.TestCase):
         """ Test type class """
         base = Place()
         self.assertAlmostEqual(type(base), Place)
+
+    def test_updated_at(self):
+        """
+            test updated_at
+        """
+        base = Place()
+        create = str(base.created_at)
+        start = str(base.updated_at)
+        base.name = "Didier"
+        base.save()
+        self.assertNotEqual(str(base.updated_at), start)
+        self.assertEqual(str(base.created_at), create)
+
+    def test_to_dict(self):
+        """ Tests dict """
+        base = Place()
+        base2 = base.to_dict()
+        self.assertEqual(base2["updated_at"], base.updated_at.isoformat())
+        self.assertEqual(base2["__class__"], "Place")
+        self.assertNotIn("__class__", base.__dict__)
+
+    def test_save(self):
+        """ Tests save """
+        base = Place()
+        base.save()
+        with open("file.json", mode="r", encoding="UTF-8") as f:
+            d = json.load(f)
+        for item in d:
+            if base.id in item:
+                d = d[item]
+        self.assertDictEqual(d, base.to_dict())
+
+    def test_new_model_dict(self):
+        """ Tests new model with dictionary """
+        base = Place()
+        dict1 = base.to_dict()
+        base2 = Place(**dict1)
+        self.assertFalse(base is base2)
+        self.assertDictEqual(base.to_dict(), base2.to_dict())
+
+
+if __name__ == '__main__':
+    unittest.main()

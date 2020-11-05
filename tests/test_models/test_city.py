@@ -11,8 +11,8 @@ import json
 from models import storage
 
 
-class Test_city(unittest.TestCase):
-    """Create class Test_city"""
+class Test_City(unittest.TestCase):
+    """Create class Test_City"""
 
     def test_doc(self):
         """ Tests docstring """
