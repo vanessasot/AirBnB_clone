@@ -10,6 +10,8 @@
 * [Usage](https://github.com/didierrevelo/AirBnB_clone/tree/jhonny#usage-memo)
 * [Files](https://github.com/didierrevelo/AirBnB_clone/tree/jhonny#files-file_folder)
 * [How to Install](https://github.com/didierrevelo/AirBnB_clone/tree/jhonny#how-to-install-computer-triangular_flag_on_post)
+* [Testing](https://github.com/didierrevelo/AirBnB_clone/tree/jhonny#testing-clipboard-mag-eyes-exclamation)
+* [Using our console](https://github.com/didierrevelo/AirBnB_clone/tree/jhonny#using-our-console-computer)
 * [Authors](https://github.com/didierrevelo/AirBnB_clone/tree/jhonny#authors-black_nib)
 ---
 
